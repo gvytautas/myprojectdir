@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8001:8001"
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_PASSWORD: test_password
+      POSTGRES_USER: test_user
+      POSTGRES_DB: test_db
